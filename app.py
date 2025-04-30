@@ -7,11 +7,11 @@ from causalml.match import NearestNeighborMatch
 from scipy.stats import ttest_ind
 import io
 
-Set page config
+# Set page config
 
 st.set_page_config(page_title="📊 Prime Causal Impact Analyzer", layout="wide")
 
-Title and Intro
+# Title and Intro
 
 st.title("📊 Causal Impact of Amazon Prime Membership on Customer Behavior")
 st.markdown("""
@@ -28,7 +28,7 @@ This app lets you:
 💼 Learn how this method drives ROI for companies like Amazon and Netflix
 """)
 
-Sidebar for upload or default
+# Sidebar for upload or default
 
 st.sidebar.header("Upload or Use Sample Data")
 
@@ -51,19 +51,19 @@ else:
 st.warning("⚠️ Please upload a dataset or use the sample checkbox in the sidebar.")
 st.stop()
 
-Validate columns
+# Validate columns
 
 if not all(col in df.columns for col in required_cols):
 st.error(f"❌ Your dataset must include the following columns: {', '.join(required_cols)}")
 st.stop()
 
-Preview data
+# Preview data
 
 st.subheader("🔍 Data Preview")
 st.markdown("This shows the first few rows from the uploaded or sample dataset.")
 st.dataframe(df.head(10))
 
-Logistic Regression for Propensity Score
+# Logistic Regression for Propensity Score
 
 X = df.drop(columns=['treatment', 'outcome'])
 T = df['treatment']
@@ -73,27 +73,27 @@ model.fit(X, T)
 propensity_scores = model.predict_proba(X)[:, 1]
 df['propensity_score'] = propensity_scores
 
-Matching
+# Matching
 
 df_for_match = df[['treatment', 'outcome', 'propensity_score', 'verified_purchase', 'product_category', 'total_votes', 'helpful_votes']]
 matcher = NearestNeighborMatch(replace=True, ratio=1)
 df_matched = matcher.match(data=df_for_match, treatment_col='treatment', score_cols=['propensity_score'])
 
-ATE
+# ATE
 
 treated = df_matched[df_matched['treatment'] == 1]['outcome']
 control = df_matched[df_matched['treatment'] == 0]['outcome']
 ate = treated.mean() - control.mean()
 t_stat, p_val = ttest_ind(treated, control)
 
-Live Results
+# Live Results
 
 st.subheader("📈 Live Causal Uplift Results (Your Data or Sample)")
 st.markdown("These results are based on your uploaded dataset or the provided Amazon sample.")
 st.success(f"Estimated ATE (Average Treatment Effect): {ate:.3f} stars")
 st.info(f"T-statistic: {t_stat:.2f} | P-value: {p_val:.5f}")
 
-Explanation of metrics
+# Explanation of metrics
 
 st.markdown("""
 
@@ -109,7 +109,7 @@ Average Treatment Effect (ATE) shows the estimated difference in outcome caused 
 
 """)
 
-Benchmark Results from Published Notebook
+# Benchmark Results from Published Notebook
 
 st.markdown("""
 
@@ -139,7 +139,7 @@ This exact method is adaptable for Netflix, Spotify, or other subscription-drive
 
 """)
 
-Visualize Propensity Score (with proper context)
+# Visualize Propensity Score (with proper context)
 
 st.subheader("📊 Propensity Score Distribution")
 st.markdown("This chart shows how well the model could distinguish treated vs. control users using estimated propensity scores. Overlap = quality matching.")
@@ -150,14 +150,14 @@ ax.set_xlabel("Propensity Score")
 ax.set_ylabel("Frequency")
 st.pyplot(fig)
 
-Download Results
+# Download Results
 
 st.subheader("⬇️ Download Matched Results")
 buffer = io.BytesIO()
 df_matched.to_csv(buffer, index=False)
 st.download_button("Download Matched Dataset", buffer.getvalue(), file_name="matched_output.csv", mime="text/csv")
 
-Business Wrap-up
+# Business Wrap-up
 
 st.subheader("💼 Executive Summary")
 st.markdown("""
