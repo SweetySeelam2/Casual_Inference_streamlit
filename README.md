@@ -73,6 +73,19 @@ Quantifying the causal effect of Prime allows for:
 - **T-statistic**: 4.441
 - **P-value**: 0.00001
 
+### Results Interpretation
+
+- The causal inference analysis revealed that Amazon Prime membership leads to an average increase of +0.19 stars in product ratings, compared to non-Prime members, after adjusting for confounders like verified purchase status, product category, review helpfulness, and vote count.
+
+- Statistically significant (p < 0.05):
+This estimate is statistically significant, with a t-statistic of 4.441 and a p-value of 0.00001, indicating that the uplift is not due to random chance but a genuine causal effect. 
+
+- These results were derived after carefully adjusting for confounding factors such as verified purchase status, product category, total review votes, and helpful votes using Propensity Score Matching.
+
+- Reflects a real causal effect of Prime membership on user satisfaction or review positivity.
+
+---
+
 ### 💼 Business Impact:
 - ⭐ Boost in average product ratings
 - 💸 18–20% increase in conversion rates
@@ -131,10 +144,14 @@ SOFTWARE.
 
 ---
 
-## 🔗 Useful Links
-- [Live App on Streamlit](https://casual-inference-prime-membership.streamlit.app/)
-- [Dataset on Kaggle](https://www.kaggle.com/datasets/cynthiarempel/amazon-us-customer-reviews-dataset)
+## Contact Me
 
+- Name: Sweety Seelam
+- Email: sweetyseelam2@gmail.com
+- LinkedIn: https://www.linkedin.com/in/sweetyrao670/
+- Portfolio: https://sweetyseelam2.github.io/SweetySeelam.github.io/
+- GitHub Repo: https://github.com/SweetySeelam2/Casual_Inference_streamlit
+- Streamlit Deployed app: [Live App on Streamlit](https://casual-inference-prime-membership.streamlit.app/)
 ---
 
 ### ⭐ Star this repo if you found it helpful. Contributions and collaborations are welcome!
