@@ -143,7 +143,10 @@ st.subheader("⬇️ Download Matched Results")
 buffer = io.BytesIO()
 df_matched.to_csv(buffer, index=False)
 st.download_button("Download Matched Dataset", buffer.getvalue(), file_name="matched_output.csv", mime="text/csv")
+("""
 
+ ---
+ """)
 # Business Wrap-up
 st.subheader("💼 Executive Summary")
 st.markdown("""
