@@ -20,6 +20,8 @@ This app lets you:
 - 📈 Automatically estimate the **causal impact (ATE)** of treatment (like Prime membership)
 - 📊 Understand what this uplift means in business terms
 - 💼 Learn how this method drives ROI for companies like Amazon and Netflix
+
+---
 """)
 
 # Sidebar for upload or default
@@ -117,7 +119,7 @@ This proven model can be directly adapted by companies like **Netflix**, **Spoti
 - Measure effects of new features or personalization
 - Identify high-ROI investments based on **causal** (not just correlated) outcomes
 
-            ---
+---          
 """)
 
 # Visualize Propensity Score Distribution
@@ -132,7 +134,10 @@ ax.set_title("Distribution of Propensity Scores by Group")
 ax.set_xlabel("Propensity Score")
 ax.set_ylabel("Frequency")
 st.pyplot(fig)
+("""
 
+---
+""")
 # Download Results
 st.subheader("⬇️ Download Matched Results")
 buffer = io.BytesIO()
