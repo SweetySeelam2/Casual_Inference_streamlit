@@ -1,9 +1,7 @@
 
-![Live App](https://img.shields.io/badge/Live%20App-Streamlit-success?logo=streamlit)
+[![Live App](https://img.shields.io/badge/Live_App-Click_to_View-success?logo=streamlit)](https://casual-inference-prime-membership.streamlit.app/)
 
 # 📊 Causal Impact of Amazon Prime Membership on Customer Behavior
-
-**Live App:** [Click here to view the app](https://casual-inference-prime-membership.streamlit.app/)
 
 ---
 
